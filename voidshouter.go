@@ -145,16 +145,16 @@ const (
 )
 
 func (w *InsertWriter) Write(p []byte) (n int, err error) {
-	nl := ""
+	maybeNL := ""
 	if len(p) > 0 && p[len(p)-1] != '\n' {
-		nl = "\n"
+		maybeNL = "\n"
 	}
 	// Why do I IndexDown+IndexUp instead of a scroll down (\x1b[S)?
 	// Because scroll down messes up the cursor position.
 	//
 	// That said, I'm confident the below isn't optimal:
 	s := ModeInsert + SaveCur + IndexDown + IndexUp + InsertLine +
-		string(p) + nl + RestoreCur + CursorDown + ModeReplace
+		"\r" + string(p) + maybeNL + RestoreCur + CursorDown + ModeReplace
 	return w.Writer.Write([]byte(s))
 }
 

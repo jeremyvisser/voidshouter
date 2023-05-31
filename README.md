@@ -27,7 +27,7 @@ Well, then I guess in that case they won’t receive it. But if they are, they w
 Okay you got me, I wasn’t being specific, but at the same time I think you’re being too pedantic. If you want to shout about it, feel free to run:
 
 ```
-% go build .
+% go build voidshouter.go
 % ./voidshouter
 <shout here>
 ```
@@ -35,8 +35,8 @@ Okay you got me, I wasn’t being specific, but at the same time I think you’r
 ## “Screenshot”
 
 ```text
-% voidshouter 
-2023/05/29 18:20:37 listening on [ff02::401d]:16413 
+% voidshouter -interface eth0 -nick bob
+2023/05/29 18:20:37 listening on [ff02::401d]:16413 eth0
 2023/05/29 18:20:42 fe80::9bf6:0e59:c196:e736 <alice> watson, come here, I want to see you
 2023/05/29 18:20:44 <bob> who the heck is watson?
 2023/05/29 18:20:47 <bob> alice?
